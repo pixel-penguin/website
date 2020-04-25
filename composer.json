@@ -12,7 +12,9 @@
     "minimum-stability": "dev",
     "require": {},
 	"autoload": {
-		"PixelPenguin\\Website\\": "src/"
+        "psr-4": {
+			"PixelPenguin\\Website\\": "src/"
+		}
 	},
 	"extra": {
 		"laravel": {
@@ -23,5 +25,5 @@
 				"PixelPenguinWebsite": "PixelPenguin\\Website\\Facade"
 			}
 		}
-	},
+	}
 }
