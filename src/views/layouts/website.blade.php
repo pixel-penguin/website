@@ -104,7 +104,8 @@
 			color: {{ env('WEBSITE_INVERTING_COLOR_1') }}
 		}
 		
-		.menu>li>a{background: transparent !important}
+		.menu>li>a{background: transparent !important; color: {{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important}
+		
 		
 		.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{ background: {{ env('WEBSITE_COLOR_1') }} !important; color: {{ env('WEBSITE_INVERTING_COLOR_1') }} !important; padding: 6px 12px !important}
 		
@@ -115,6 +116,8 @@
 		.hooper-prev, .hooper-next{background: rgba(255,255,255, 0.2) !important; border: 1px solid rgba(0,0,0,0.2) !important} 
 		
 		.widget-newsletter .btn{background-color: {{ env('WEBSITE_COLOR_1') }}; color: {{ env('WEBSITE_INVERTING_COLOR_1') }}}
+		
+		.home-slide-content h1, .home-slide-content h3{ color: {{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important }
 	</style>
 	
 	
