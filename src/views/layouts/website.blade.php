@@ -118,6 +118,8 @@
 		.widget-newsletter .btn{background-color: {{ env('WEBSITE_COLOR_1') }}; color: {{ env('WEBSITE_INVERTING_COLOR_1') }}}
 		
 		.home-slide-content h1, .home-slide-content h3{ color: {{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important }
+		
+		.logo img{ padding:26px !important}
 	</style>
 	
 	
