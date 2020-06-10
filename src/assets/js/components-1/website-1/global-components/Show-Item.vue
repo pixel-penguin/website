@@ -241,7 +241,9 @@
 
                     self.attributesChosen = new Object;
                     
-                    Vue.set(self.attributesChosen, 'color', 'none');
+                    if(self.product.colors.length > 0){
+                        Vue.set(self.attributesChosen, 'color', 'none');
+                    }
 
                     self.product.attributes.forEach(function(entry) {
                         Vue.set(self.attributesChosen, entry.name, 'none');
