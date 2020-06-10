@@ -33,7 +33,7 @@
             <p v-html="product.detail_summary"></p>
         </div><!-- End .product-desc -->
 
-        <div class="product-filters-container">
+        <div class="product-filters-container" v-if="product.colors != undefined && product.colors.length > 0">
             <div class="product-single-filter">
                 <label>Colors:</label>
                 <ul class="config-swatch-list">
@@ -193,11 +193,17 @@
 
                     self.attributesChosen = new Object;
                     
-                    Vue.set(self.attributesChosen, 'color', 'none');
+                    if(self.product.colors.length > 0){
+                        Vue.set(self.attributesChosen, 'color', 'none');
+                    }
+                    
 
-                    self.product.attributes.forEach(function(entry) {
-                        Vue.set(self.attributesChosen, entry.name, 'none');
-                    })
+                    if(self.product.attributes != undefined){
+                        self.product.attributes.forEach(function(entry) {
+                            Vue.set(self.attributesChosen, entry.name, 'none');
+                        })
+
+                    }
 
 
 
@@ -224,26 +230,32 @@
 
                 //alert('hi');
                 
+                console.log(self.attributesChosen);
+
                 //self.attributesChosen.forEach(function(entry) {
                 
-            
-                Object.keys(self.attributesChosen).forEach(function(key) {
-    
-                    attributeToCompare.push(self.attributesChosen[key]);
-                    
-                })
                 
+                if(self.product.attributes != undefined){
+                    Object.keys(self.attributesChosen).forEach(function(key) {
+        
+                        attributeToCompare.push(self.attributesChosen[key]);
+                        
+                    })
+                }
 
                 console.log();
                 console.log('quantity:'+ self.quantity);
-                self.product.prices.forEach(function(entry) {
-                    //alert('nice');
-                    if(JSON.stringify(attributeToCompare.sort()) === JSON.stringify(entry.keywordsArray.sort())){
-                        //Vue.set(self.attributesChosen, entry.name, 'none');
-                        self.priceSelected = entry;
-                    }
-                    
-                })
+
+                if(self.product.prices != undefined){
+                    self.product.prices.forEach(function(entry) {
+                        //alert('nice');
+                        if(JSON.stringify(attributeToCompare.sort()) === JSON.stringify(entry.keywordsArray.sort())){
+                            //Vue.set(self.attributesChosen, entry.name, 'none');
+                            self.priceSelected = entry;
+                        }
+                        
+                    })
+                }
                     
                 
                 //JSON.stringify(actual.sort()) === JSON.stringify(expected.sort())

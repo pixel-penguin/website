@@ -13,11 +13,14 @@ Route::group([
 	Route::get('/products/{categoryId?}/{orderBy?}', 'ProductController@directory');
 	
 	Route::get('/cart/view', 'CartController@viewCart');
-	Route::get('/checkout', 'CartController@viewCheckout');
 	Route::get('/contact-us', 'ContactController@index');
 	
 	
     Route::get('/page/{linkName}', 'PageController@index')->name('pageView');
+    Route::get('/invoice/{referenceCode}', 'InvoiceController@index')->name('pageView');
+	
+	
+    Route::get('/thankyou/{referenceCode}', 'InvoiceController@thankYou')->name('pageView');
 	//Route::post('add-to-cart', 'CartController@addToCart');
 	
 	Route::get('/json/products/get/{categoryId?}/{take?}/{skip?}/{orderBy?}/{orderType?}', 'ProductController@jsonDirectory');
@@ -37,4 +40,12 @@ Route::group([
 	Route::post('clear', 'CartController@clearCart');
 });
 
+Route::group([
+	'namespace' => 'PixelPenguin\Website\Http\Controllers',
+	'middleware'	=>	['web', 'auth'],
 
+	], function () {
+	
+	Route::get('/checkout', 'CartController@viewCheckout');
+
+});

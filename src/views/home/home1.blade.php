@@ -17,9 +17,12 @@
                                 <div class="col-md-5 offset-md-7">
                                     <div class="home-slide-content slide-content-big">
                                         
-										@if(isset($content[$key]))
-										{!! $content[$key]->detail !!}
-										@endif
+																				
+										<h1>{{ $galleryItem->name }}</h1>
+                                        <h3>
+                                            {{ $galleryItem->description }}
+                                        </h3>
+                                        <a href="{{ $galleryItem->button_link }}" class="btn btn-primary">{{ $galleryItem->button_text }}</a>
 										
 										<!--
 										<h1>Dresses</h1>

@@ -265,6 +265,9 @@
                             <div class="header-dropdown dropdown-expanded">
                                 <a href="#">Links</a>
                                 <div class="header-menu">
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										@csrf
+									</form>
                                     <ul>
                                         <!--
 										<li><a href="#" >MY ACCOUNT </a></li>
@@ -274,7 +277,10 @@
 										
 										@if(Auth::check())
 										<li><a style="color: #3a2417;" href="/admin" class="btn btn-default">Admin</a></li>
-										<li><a style="color: #3a2417;" href="/logout" class="btn btn-default">Logout</a></li>
+										
+										
+										<li><a href="javascript:void" onclick="$('#logout-form').submit();" style="color: #3a2417;" class="btn btn-default">Logout</a></li>
+										<!--<li><a style="color: #3a2417;" href="/logout" class="btn btn-default">Logout</a></li>-->
 										
 										@else
 										<li><a href="/login" class="login-link">SIGN IN</a></li>
