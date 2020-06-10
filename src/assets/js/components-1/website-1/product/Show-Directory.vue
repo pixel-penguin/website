@@ -156,7 +156,7 @@
 									
 									<ul>
 										<li v-for="category1 in productCategories" :key="category1.id">
-											<div style="background:#333; color:#FFF; padding:6px 12px; border-radius:5px; margin-top:20px">{{ category1.name }}</div>
+											<a :href="'/products/'+category1.id"><div style="background:#333; color:#FFF; padding:6px 12px; border-radius:5px; margin-top:20px">{{ category1.name }}</div></a>
 											<ul v-if="category1.children.length > 0">
 												<li  style="padding:3px 6px;" v-for="category2 in category1.children" :key="category2.id">
 													
