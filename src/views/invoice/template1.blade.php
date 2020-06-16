@@ -247,6 +247,7 @@
 						<thead>
 							<tr>
 								<th>#</th>
+								<th>Code</th>
 								<th class="text-left">DESCRIPTION</th>
 								<th class="text-right">PRICE</th>
 								<th class="text-right">QUANTITY</th>
@@ -262,6 +263,7 @@
 							@foreach($sale->products as $product)
 							<tr>
 								<td class="no">{{ $count }}</td>
+								<td class="no">{{ $product->product_code }}</td>
 								<td class="text-left">
 									<h3>
 										<a target="_blank" href="/product/{{ $product->productPrice->product->link_name }}">

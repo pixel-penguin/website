@@ -47,6 +47,8 @@
 			color:{{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important
 		}
 		
+		.dropdown-cart-icon::before, .header-search .btn i::before{ color:{{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important }
+		
 		.dropdown-cart-text{
 			color:{{ env('NAVIGATION_TOP_TEXT_COLOR') }} !important
 		}
@@ -415,8 +417,8 @@
                             </div><!-- End .row -->
 
                             <div class="footer-bottom">
-                                <img src="https://res.cloudinary.com/pixel-penguin/image/upload/v1586635129/for-all-websites/cards/payments2_knwsa7.png" alt="payment methods" class="footer-payments">
-                                <p class="footer-copyright">{{ date('Y') }} &copy; Copyright<br> All Rights Reserved.</p>
+                                <!--<img src="https://res.cloudinary.com/pixel-penguin/image/upload/v1586635129/for-all-websites/cards/payments2_knwsa7.png" alt="payment methods" class="footer-payments">-->
+                                <p class="footer-copyright">{{ date('Y') }} &copy; Copyright All Rights Reserved.</p>
 
                                 <div class="social-icons">
                                     <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
@@ -458,9 +460,11 @@
             </nav><!-- End .mobile-nav -->
 
             <div class="social-icons">
+				<!--
                 <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
                 <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
                 <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
+				-->
             </div><!-- End .social-icons -->
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->

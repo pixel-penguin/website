@@ -6,9 +6,6 @@
             <div class="home-slider-container">
                 <div class="home-slider owl-carousel owl-theme owl-theme-light">
                     
-					<?php
-						$content = $page->contents;
-					?>
 					@foreach($page->gallery()->orderBy('column_order')->get() as $key => $galleryItem)
 					<div class="home-slide">
                         <div class="slide-bg owl-lazy" data-src="https://res.cloudinary.com/pixel-penguin/image/upload/c_fill,h_800,w_1970/v1/{{ $galleryItem->image_name }}.png" style="background-position:32% center;"></div><!-- End .slide-bg -->
@@ -152,22 +149,22 @@
                     
                 </div><!-- End .featured-products -->
             </div><!-- End .container -->
-
-            <div class="promo-section" style="background-image: url(assets/images/promo-bg.jpg)">
+			
+            <div class="promo-section" style="background-image: url(https://res.cloudinary.com/pixel-penguin/image/upload/c_fill,h_600,w_1920/v1/{{ env('SPECIALS_BACKGROUND_IMAGE_NAME') }}.jpg)">
                 <div class="container">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 offset-lg-2">
                                 <div class="promo-slider owl-carousel owl-theme owl-theme-light">
+									
+									
+									@foreach($specials as $special)
                                     <div class="promo-content">
-                                        <h3>Up to <span>40%</span> Off<br> <strong>Special Promo</strong></h3>
-                                        <a href="#" class="btn btn-primary">Purchase Now</a>
+                                        <h3>{!! $special->detail !!}</h3>
+                                        <a href="{{ $special->url }}" class="btn btn-primary">Purchase Now</a>
                                     </div><!-- Endd .promo-content -->
-
-                                    <div class="promo-content">
-                                        <h3>Up to <span>58%</span> Off<br> <strong>Holiday Promo</strong></h3>
-                                        <a href="#" class="btn btn-primary">Purchase Now</a>
-                                    </div><!-- Endd .promo-content -->
+									@endforeach
+                                    
                                 </div><!-- End .promo-slider -->
                             </div><!-- End .col-lg-6 -->
                         </div><!-- End .row -->

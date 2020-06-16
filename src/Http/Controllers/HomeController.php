@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use PixelPenguin\Admin\Models\Page;
 use PixelPenguin\Admin\Models\ProductPrice;
+use PixelPenguin\Admin\Models\Special;
 
 class HomeController extends Controller
 {
@@ -35,9 +36,11 @@ class HomeController extends Controller
 		->where('product_prices.is_discount', true)
 		->get();
 		
+		$specials = Special::All();
+		
 		//dd($featuredProducts[0]->product);
 		
-		return view('pixel-penguin-website::home.home1', ['discountedProducts' => $discountedProducts, 'featuredProducts' => $featuredProducts, 'page' => $page]);
+		return view('pixel-penguin-website::home.home1', ['discountedProducts' => $discountedProducts, 'featuredProducts' => $featuredProducts, 'page' => $page, 'specials' => $specials]);
 		
 	}
 	
