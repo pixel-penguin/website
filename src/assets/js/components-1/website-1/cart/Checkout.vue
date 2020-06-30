@@ -24,7 +24,7 @@
                                 <tr v-for="cartEntry in cart" :key="cartEntry.id">
                                     <td class="product-col">
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="#" class="product-image">
                                                 <img  :src="'https://res.cloudinary.com/pixel-penguin/image/upload/c_fill,g_north,h_600,w_600/v1/'+cartEntry.product.gallery[0].image_name+'.jpg'" alt="product">
                                             </a>
                                         </figure>

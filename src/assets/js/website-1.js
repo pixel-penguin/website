@@ -25,6 +25,9 @@ Vue.use(VueAxios, axios);
 import VueSweetalert2 from 'vue-sweetalert2'; 
 Vue.use(VueSweetalert2);
 
+import VueAutosuggest from "vue-autosuggest";
+Vue.use(VueAutosuggest);
+
 Vue.component('globalcomponent-cartnavigation', require('./components-1/website-1/global-components/Cart-Navigation.vue').default);
 Vue.component('globalcomponent-show-item', require('./components-1/website-1/global-components/Show-Item.vue').default);
 
@@ -35,6 +38,9 @@ Vue.component('product-directory-show', require('./components-1/website-1/produc
 
 Vue.component('cart-view', require('./components-1/website-1/cart/View.vue').default);
 Vue.component('cart-checkout', require('./components-1/website-1/cart/Checkout.vue').default);
+
+Vue.component('global-search', require('./components-1/website-1/global-components/Search.vue').default);
+
 
 
 Vue.component('contact.contact1', require('./components-1/website-1/contact/Contact1.vue').default);

@@ -247,6 +247,15 @@
 			transform: rotate(360deg);
 		  }
 		}
+		
+		
+		
+		#autosuggest{ padding:0 !important}
+		#autosuggest div, #autosuggest input{height: 100% !important; width: 100% !important}
+		#autosuggest input{background: none; border:none; padding: 10px 5px}
+		
+		.autosuggest__results ul{background: #FFF; color: #333; z-index: 999; padding: 6px 3px}
+		.autosuggest__results ul li{padding: 6px 3px; cursor: pointer}
 	</style>
 	
 	@yield('style')
@@ -293,10 +302,14 @@
                             <div class="header-search">
                                 <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
                                 <div class="header-search-wrapper">
+									
+									<global-search></global-search>
+									<!--
                                     <form action="#" method="get">
                                         <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required>
                                         <button class="btn" type="submit"><i class="icon-magnifier"></i></button>
                                     </form>
+									-->				
                                 </div><!-- End .header-search-wrapper -->
                             </div><!-- End .header-search -->
                         </div><!-- End .header-row -->
