@@ -34,6 +34,7 @@ class HomeController extends Controller
 		->with('product.category')
 		->where('products.active', true)
 		->where('product_prices.is_discount', true)
+		->where('product_prices.active', true)
 		->get();
 		
 		$specials = Special::All();
