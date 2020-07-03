@@ -11,7 +11,7 @@
         @selected="selectHandler"
       >
       <template slot-scope="{suggestion}">
-        <a :href="'/product/'+suggestion.item.link_name"><span class="my-suggestion-item">{{suggestion.item.name}}</span></a>
+        <a :href="'/product/'+suggestion.item.link_name"><span style="color:#333" class="my-suggestion-item">{{suggestion.item.name}}</span></a>
     </template>
       </vue-autosuggest>
       <button class="btn" type="submit">
@@ -70,9 +70,20 @@
 
                         var data = response.data;
 
-                        self.searchResults = [{
-                            data: data.data
-                        }];
+                        if(data.data.length > 0){
+                            self.searchResults = [{
+                                data: data.data
+                            }];    
+                        }
+                        else{
+                            self.searchResults = [{
+                                data: {
+                                    'name': 'no results found',
+                                    'link_name': ''
+                                }
+                            }];   
+                        }
+                        
 
                         self.loading = false;
                     })
