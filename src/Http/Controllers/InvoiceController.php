@@ -52,7 +52,7 @@ class InvoiceController extends Controller
 		}
 		
 		if(env('EMAIL_SEND_USER_EMAIL') == 1){
-			Mail::to($user->email)->send(new Contact($message, $subject));
+			Mail::to($user->email)->send(new Contact($messageUser, $subject));
 		}
 		
 		
