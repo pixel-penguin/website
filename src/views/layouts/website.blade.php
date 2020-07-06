@@ -423,8 +423,8 @@
 
                                         <p>{{ env('WEBSITE_DETAIL_NEWSLETTER_TEXT') }}</p>
 
-                                        <form action="#">
-                                            <input type="email" class="form-control" placeholder="Email address" required>
+                                        <form method="post" action="/subscribe-news-letter">
+                                            <input name="email" type="email" class="form-control" placeholder="Email address" required>
 
                                             <input type="submit" class="btn" value="Go">
                                         </form>

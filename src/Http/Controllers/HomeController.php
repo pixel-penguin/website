@@ -4,9 +4,12 @@ namespace PixelPenguin\Website\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use Illuminate\Http\Request;
+
 use PixelPenguin\Admin\Models\Page;
 use PixelPenguin\Admin\Models\ProductPrice;
 use PixelPenguin\Admin\Models\Special;
+use PixelPenguin\Admin\Models\NewsLetter;
 
 class HomeController extends Controller
 {
@@ -43,6 +46,17 @@ class HomeController extends Controller
 		
 		return view('pixel-penguin-website::home.home1', ['discountedProducts' => $discountedProducts, 'featuredProducts' => $featuredProducts, 'page' => $page, 'specials' => $specials]);
 		
+	}
+	
+	public function SubscribeNewsLetter(Request $request){
+		$input = $request->all();
+		
+		$newsletter = new NewsLetter();
+		
+		$newsletter->email = $input['email'];
+		$newsletter->save();
+		
+		return redirect('/');
 	}
 	
 	static public function functionInController(){
