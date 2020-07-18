@@ -144,7 +144,7 @@
                     <tbody>
                         <tr>
                             <td>Subtotal</td>
-                            <td>N${{addCommas(subtotal)}}</td>
+                            <td>N${{addCommas(subtotal.toFixed(2))}}</td>
                         </tr>
                         <!--
                         <tr>
@@ -156,7 +156,7 @@
                     <tfoot>
                         <tr>
                             <td>Order Total</td>
-                            <td>N${{addCommas(subtotal)}}</td>
+                            <td>N${{addCommas(subtotal.toFixed(2))}}</td>
                         </tr>
                     </tfoot>
                 </table>
