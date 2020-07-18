@@ -59,7 +59,7 @@
                             <p v-html="product.detail_summary"></p>
                         </div><!-- End .product-desc -->
 
-                        <div class="product-filters-container">
+                        <div class="product-filters-container" v-if="product.colors != undefined && product.colors.length > 0">
                             <div class="product-single-filter">
                                 <label>Colors:</label>
                                 <ul class="config-swatch-list">

@@ -26,7 +26,7 @@
 
                             <span class="cart-product-info">
                                 <span class="cart-product-qty">{{cartEntry.quantity}}</span>
-                                x N${{addCommas(cartEntry.price) }}
+                                x N${{addCommas(cartEntry.price.toFixed()) }}
                             </span>
                         </div><!-- End .product-details -->
 
@@ -40,7 +40,7 @@
                 <div class="dropdown-cart-total">
                     <span>SubTotal:</span>
 
-                    <span class="cart-total-price">N${{addCommas(subtotal)}}</span>
+                    <span class="cart-total-price">N${{addCommas(subtotal.price.toFixed())}}</span>
                 </div><!-- End .dropdown-cart-total -->
 
                 <div class="dropdown-cart-action">

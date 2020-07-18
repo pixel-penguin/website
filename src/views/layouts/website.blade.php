@@ -125,6 +125,8 @@
 		
 		
 		.header-middle{background-position: top center !important}
+		
+		.cart-dropdown{ z-index: 999 !important}
 	</style>
 	
 	
