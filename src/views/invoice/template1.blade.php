@@ -281,7 +281,7 @@
 							
 								$total += $product->price * $product->quantity;
 							
-								$total =+ $sale->sale_shipping_price;
+								$total += $sale->sale_shipping_price;
 							?>
 							@endforeach
 							
