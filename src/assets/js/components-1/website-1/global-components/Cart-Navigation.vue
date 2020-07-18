@@ -40,7 +40,7 @@
                 <div class="dropdown-cart-total">
                     <span>SubTotal:</span>
 
-                    <span class="cart-total-price">N${{addCommas(subtotal.toFixed())}}</span>
+                    <span class="cart-total-price">N${{addCommas(subtotal.toFixed(2))}}</span>
                 </div><!-- End .dropdown-cart-total -->
 
                 <div class="dropdown-cart-action">
