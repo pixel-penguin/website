@@ -398,7 +398,7 @@
                                         <h4 class="widget-title">Main Features</h4>
                                         <ul class="links">
 											
-											@foreach(\PixelPenguin\Admin\Models\Page::where('parent_id', 0)->get() as $page)
+											@foreach(\PixelPenguin\Admin\Models\Page::where('parent_id', 0)->where('active', true)->orderBy('column_order')->get() as $page)
 											
 											<?php
 												if(strlen($page->website_link) > 0){
