@@ -529,7 +529,15 @@
       </div>
     </div>
 	
+	@if (!session()->exists('homePagePopup')) {
+	{!! PixelPenguin\Admin\Models\WebsiteDetail::first()->one_time_popup !!}
+	@endif
+
+	<?php
+		session(['homePagePopup' => true]);
+		
 	
+	?>
 	<div class="loading" style="display: none">Loading&#8230;</div>
 	
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
