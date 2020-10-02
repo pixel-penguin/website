@@ -24,7 +24,7 @@
                                     <a :href="'product/'+cartEntry.product.link_name">{{ cartEntry.name }}</a>
                                 </h2>
                             </td>
-                            <td>N${{cartEntry.price}}</td>
+                            <td>{{currency}}{{cartEntry.price}}</td>
                             <td>
                                 
                                 <div class="input-group  bootstrap-touchspin bootstrap-touchspin-injected">
@@ -36,7 +36,7 @@
                                 </div>
 
                             </td>
-                            <td>N${{cartEntry.price * cartEntry.quantity}}</td>
+                            <td>{{currency}}{{cartEntry.price * cartEntry.quantity}}</td>
 
                             <td colspan="4" class="clearfix">
                                 <div class="float-left">
@@ -144,7 +144,7 @@
                     <tbody>
                         <tr>
                             <td>Subtotal</td>
-                            <td>N${{addCommas(subtotal.toFixed(2))}}</td>
+                            <td>{{currency}}{{addCommas(subtotal.toFixed(2))}}</td>
                         </tr>
                         <!--
                         <tr>
@@ -156,7 +156,7 @@
                     <tfoot>
                         <tr>
                             <td>Order Total</td>
-                            <td>N${{addCommas(subtotal.toFixed(2))}}</td>
+                            <td>{{currency}}{{addCommas(subtotal.toFixed(2))}}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -179,6 +179,9 @@
             return{
                 loading: null,
 
+                cloudinaryCloudName:null,
+                currency:null,
+
                 cart:[],
                 subtotal:0,
                 totalQuantity: 0.
@@ -190,6 +193,7 @@
             const self = this;
 
             self.cloudinaryCloudName = process.env.MIX_CLOUDINARY_CLOUD_NAME;
+            self.currency = process.env.MIX_CURRENCY;
 
             self.getCart();
         },

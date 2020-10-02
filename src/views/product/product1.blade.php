@@ -165,7 +165,7 @@
 												</div><!-- End .product-container -->
 												<div class="price-box">
 													
-													<span class="product-price">From N${{ number_format($productEntry->prices[0]->price) }}</span>													
+													<span class="product-price">From {{ env("MIX_CURRENCY") }}{{ number_format($productEntry->prices[0]->price) }}</span>													
 													
 												</div><!-- End .price-box -->
 											</div><!-- End .product-details -->
@@ -232,10 +232,10 @@
 								</div><!-- End .product-container -->
 								<div class="price-box">
 									@if($productEntry->is_discount)
-									<span class="old-price">N${{ number_format($productEntry->price) }}</span>
-									<span class="product-price">N${{ number_format($productEntry->discounted_price) }}</span>
+									<span class="old-price">{{ env("MIX_CURRENCY") }}{{ number_format($productEntry->price) }}</span>
+									<span class="product-price">{{ env("MIX_CURRENCY") }}{{ number_format($productEntry->discounted_price) }}</span>
 									@else
-									<span class="product-price">N${{ number_format($productEntry->price) }}</span>
+									<span class="product-price">{{ env("MIX_CURRENCY") }}{{ number_format($productEntry->price) }}</span>
 									@endif
 								</div><!-- End .price-box -->
 							</div><!-- End .product-details -->

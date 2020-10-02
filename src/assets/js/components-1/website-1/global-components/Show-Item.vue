@@ -41,17 +41,17 @@
                         </div>
 
                         <div v-if="priceSelected == false" class="price-box" >
-                            <span v-if="product.prices != undefined" class="product-price">from N${{addCommas(product.prices[0].price)}}</span>
+                            <span v-if="product.prices != undefined" class="product-price">from {{currency}}{{addCommas(product.prices[0].price)}}</span>
                         </div><!-- End .price-box -->
 
                         <div v-else class="price-box">
                             
                             <div v-if="priceSelected.is_discount">
-                                <span class="old-price">N${{addCommas(priceSelected.price)}}</span>
-                                <span class="product-price">N${{addCommas(priceSelected.discounted_price)}}</span>
+                                <span class="old-price">{{currency}}{{addCommas(priceSelected.price)}}</span>
+                                <span class="product-price">{{currency}}{{addCommas(priceSelected.discounted_price)}}</span>
                             </div>
                             <div v-else>
-                                <span class="product-price">N${{addCommas(priceSelected.price)}}</span>
+                                <span class="product-price">{{currency}}{{addCommas(priceSelected.price)}}</span>
                             </div>
                         </div><!-- End .price-box -->
 
@@ -145,7 +145,8 @@
         data(){
             return{
                 loading: null,
-                cloudinaryCloudName: null,
+                cloudinaryCloudName:null,
+                currency:null,
                 show: false,
                 product: [],
                 attributesChosen: [],
@@ -194,6 +195,7 @@
             const self = this;
 
             self.cloudinaryCloudName = process.env.MIX_CLOUDINARY_CLOUD_NAME;
+            self.currency = process.env.MIX_CURRENCY;
 
 
         },

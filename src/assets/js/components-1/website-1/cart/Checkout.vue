@@ -36,7 +36,7 @@
                                             <span class="product-qty">Qty: {{cartEntry.quantity}}</span>
                                         </div>
                                     </td>
-                                    <td class="price-col">N${{cartEntry.price * cartEntry.quantity}}</td>
+                                    <td class="price-col">{{currency}}{{cartEntry.price * cartEntry.quantity}}</td>
                                 </tr>
 
                                 
@@ -51,11 +51,17 @@
                     </h3>
 
                     <address>
-                        Desmond Mason <br>
-                        123 Street Name, City, USA <br>
-                        Los Angeles, California 03100 <br>
-                        United States <br>
-                        (123) 456-7890
+                        {{user.name}} <br>
+                        {{user.postal_code}}<br>
+                        <select disabled v-model="user.country_id">
+                            <option v-for="country in countries" :key="country.id" :value="country.id">{{country.name}}</option>
+                        </select>
+                        <select disabled v-model="user.city_id">
+                            <option v-for="city in cities" :key="city.id" :value="city.id">{{city.name}}</option>
+                        </select><br>
+                        {{user.street_address_1}}<br>
+                        {{user.street_address_2}}<br>
+                        {{user.contact_number}}
                     </address>
                 </div><!-- End .checkout-info-box -->
                 
@@ -64,7 +70,7 @@
                         <a @click="step = 1" href="#" title="Edit" class="step-title-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
                     </h3>
 
-                    <p v-if="shippingMethod != null">{{shippingMethod.name}} - <strong>N${{shipping_price}}</strong></p>
+                    <p v-if="shippingMethod != null">{{shippingMethod.name}} - <strong>{{currency}}{{shipping_price}}</strong></p>
                 </div><!-- End .checkout-info-box -->
             </div><!-- End .col-lg-4 -->
 
@@ -242,6 +248,9 @@
             return{
                 loading: null,
                 step: 1,
+                
+                cloudinaryCloudName:null,
+                currency:null,
 
                 user: [],
                 countries: [],
@@ -264,6 +273,7 @@
             const self = this;
 
             self.cloudinaryCloudName = process.env.MIX_CLOUDINARY_CLOUD_NAME;
+            self.currency = process.env.MIX_CURRENCY;
 
             self.getUserDetail();
             self.getCountries();

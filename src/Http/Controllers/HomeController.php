@@ -11,11 +11,16 @@ use PixelPenguin\Admin\Models\ProductPrice;
 use PixelPenguin\Admin\Models\Special;
 use PixelPenguin\Admin\Models\NewsLetter;
 
+use PixelPenguinAdmin;
+
 class HomeController extends Controller
 {
 	public function index(){
 		
+		//$pages = PixelPenguinAdmin::getAllPages();
+		//dd($pages);
 		//echo 'hi';
+		//die();
 		
 		$page = Page::whereId(1)->first();
 		

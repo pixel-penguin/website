@@ -26,7 +26,7 @@
 
                             <span class="cart-product-info">
                                 <span class="cart-product-qty">{{cartEntry.quantity}}</span>
-                                x N${{addCommas(cartEntry.price) }}
+                                x {{currency}}{{addCommas(cartEntry.price) }}
                             </span>
                         </div><!-- End .product-details -->
 
@@ -40,7 +40,7 @@
                 <div class="dropdown-cart-total">
                     <span>SubTotal:</span>
 
-                    <span class="cart-total-price">N${{addCommas(subtotal.toFixed(2))}}</span>
+                    <span class="cart-total-price">{{currency}}{{addCommas(subtotal.toFixed(2))}}</span>
                 </div><!-- End .dropdown-cart-total -->
 
                 <div class="dropdown-cart-action">
@@ -58,7 +58,8 @@
         data(){
             return{
                 loading: null,
-                cloudinaryCloudName: null,
+                cloudinaryCloudName:null,
+                currency:null,
 
                 cart: [],
 
@@ -73,6 +74,7 @@
             const self = this;
 
             self.cloudinaryCloudName = process.env.MIX_CLOUDINARY_CLOUD_NAME;
+            self.currency = process.env.MIX_CURRENCY;
             
             self.getCart();
 

@@ -272,9 +272,9 @@
 									</h3>
 								  
 								</td>
-								<td class="unit">N${{ $product->price }}</td>
+								<td class="unit">{{ env("MIX_CURRENCY") }}{{ $product->price }}</td>
 								<td class="qty">{{ $product->quantity }}</td>
-								<td class="total">N${{ $product->price * $product->quantity }}</td>
+								<td class="total">{{ env("MIX_CURRENCY") }}{{ $product->price * $product->quantity }}</td>
 							</tr>
 							<?php 
 								$count++;
@@ -290,28 +290,28 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="2"></td>
+								<td colspan="3"></td>
 								<td colspan="2">Shipping type: {{ $sale->shippingMethod->name }}</td>
-								<td>N${{ $sale->sale_shipping_price }}</td>
+								<td>{{ env("MIX_CURRENCY") }}{{ $sale->sale_shipping_price }}</td>
 							</tr>
 							<tr>
-								<td colspan="2"></td>
+								<td colspan="3"></td>
 								<td colspan="2">SUBTOTAL</td>
-								<td>N${{ $total * ((100-15) / 100) }}</td>
+								<td>{{ env("MIX_CURRENCY") }}{{ $total * ((100-15) / 100) }}</td>
 							</tr>
 							<tr>
-								<td colspan="2"></td>
+								<td colspan="3"></td>
 								<td colspan="2">TAX 15%</td>
-								<td>N${{ $total * ((100-85) / 100) }}</td>
+								<td>{{ env("MIX_CURRENCY") }}{{ $total * ((100-85) / 100) }}</td>
 							</tr>
 							<tr>
-								<td colspan="2"></td>
+								<td colspan="3"></td>
 								<td colspan="2">GRAND TOTAL</td>
-								<td>N${{ $total }}</td>
+								<td>{{ env("MIX_CURRENCY") }}{{ $total }}</td>
 							</tr>
 						</tfoot>
 					</table>
-					<div class="thanks">Thank you!</div>
+					<!--<div class="thanks">Thank you!</div>-->
 					<div class="notices">
 						<div>NOTICE:</div>
 						<div class="notice">{!! env('INVOICE_NOTICE') !!}</div>
